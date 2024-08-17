@@ -1,28 +1,26 @@
 from sortedcontainers import SortedList
 
-class Solution(object):
+class Solution:
     def numberOfPairs(self, nums1, nums2, diff):
         n = len(nums1)
-        nums_diff = [nums1[i] - nums2[i] for i in range(n)]
-        return self.CountPairs(nums_diff, 0, n - 1, diff)
-    
-    def CountPairs(self, nums, left, right, diff):
-        if left >= right:
-            return 0
-        
-        mid = (left + right) // 2
-        count = self.CountPairs(nums, left, mid, diff) + self.CountPairs(nums, mid + 1, right, diff)
-        
-        j = mid + 1
+        transformed = [nums1[i] - nums2[i] for i in range(n)]
         sorted_list = SortedList()
+        count = 0
         
-        # Count pairs using the SortedList
-        for i in range(mid, left - 1, -1):
-            while j <= right and nums[j] <= nums[i] + diff:
-                sorted_list.add(nums[j])
-                j += 1
-            count += len(sorted_list) - sorted_list.bisect_right(nums[i] + diff)
+        def custom_bisect_right(sorted_list, value):
+            low, high = 0, len(sorted_list)
+            while low < high:
+                mid = (low + high) // 2
+                if sorted_list[mid] <= value:
+                    low = mid + 1
+                else:
+                    high = mid
+            return low
         
-        # Merge the two halves
-        nums[left:right + 1] = sorted(nums[left:right + 1])
+        for value in transformed:
+            # Count number of elements in sorted_list that are <= value + diff
+            count += custom_bisect_right(sorted_list, value + diff)
+            # Add the current value to the sorted list
+            sorted_list.add(value)
+        
         return count
