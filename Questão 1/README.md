@@ -13,4 +13,5 @@ Link para o enunciado completo:
 https://leetcode.com/problems/create-sorted-array-through-instructions/description/
 
 Submissões:
+
 ![image](https://github.com/user-attachments/assets/ea300e55-af5d-4033-8fe2-1b15ecf86a2c)
