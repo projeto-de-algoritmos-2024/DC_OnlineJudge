@@ -15,4 +15,3 @@ https://leetcode.com/problems/number-of-pairs-satisfying-inequality/description/
 Submissões:
 
 ![image](https://github.com/user-attachments/assets/c14012ce-e7f2-49c9-9e60-0f72da777a75)
-
