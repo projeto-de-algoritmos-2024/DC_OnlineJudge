@@ -8,3 +8,4 @@ https://leetcode.com/problems/maximum-subarray/description/
 
 Submissões:
 
+![image](https://github.com/user-attachments/assets/ec06a7b7-1dce-49c9-b268-791200252027)
